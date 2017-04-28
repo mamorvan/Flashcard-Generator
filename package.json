@@ -1,0 +1,22 @@
+{
+  "name": "flashcardgenerator",
+  "version": "1.0.0",
+  "description": "make basic or cloze flashcard sets and run them in terminal",
+  "main": "RunFlashCards.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamorvan/Flashcard-Generator.git"
+  },
+  "author": "Mary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mamorvan/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/mamorvan/Flashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.0.6"
+  }
+}
