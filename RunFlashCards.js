@@ -26,6 +26,9 @@ basicSmithSongs.addBasicCard(
 basicSmithSongs.addBasicCard(
 	"NAME THE SMITHS SONG:\nShoplifters of the World,\nUnite and take over\n", 
 	"Shoplifters of the World Unite");
+basicSmithSongs.addBasicCard(
+	"NAME THE SMITHS SONG:\nIf a double-decker bus crashes into us,\nTo die by your side is such a heavenly way to die\n", 
+	"There Is a Light That Never Goes Out");
 
 var indexCount = 0;
 //pass wanted card set if more than one was created
