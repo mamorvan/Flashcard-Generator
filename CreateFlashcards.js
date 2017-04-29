@@ -7,6 +7,8 @@ var CardCreator = function(type) {
 		return new CardCreator(type);
 	}
 	//add this method to prototype? not sure how with if statement
+	//add function to prototype and then call here - but then both cards have access to unneeded functions
+	//recommended - make a stand-alone function and reference that - no prototype
 	if (type === "basic") {
 		this.basicCardSet = [];
 		this.addBasicCard = function(front, back) {
