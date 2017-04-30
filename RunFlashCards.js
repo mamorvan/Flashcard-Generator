@@ -2,65 +2,125 @@ var inquirer = require("inquirer");
 
 var CardSetCreator = require("./CreateCardSet.js");
 
+//add cards to basicSmithSongs 
 var basicSmithSongs = CardSetCreator("basic");
 
-//add cards to basicSmithSongs 
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nFifteen minutes with you,\nWell I wouldn't say no\n", 
+	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
 	"Reel Around the Fountain");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nSweetness, sweetness, I was only joking\n", 
+	"\nSweetness, sweetness, I was only joking\n", 
 	"Bigmouth Strikes Again");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nCall me morbid, call me pale,\nI spent six years on your trail\n", 
+	"\nCall me morbid, call me pale,\nI spent six years on your trail\n", 
 	"Half a Person");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nI am the son and the heir,\nof a shyness that is criminally vulgar\n", 
+	"\nI am the son and the heir,\nof a shyness that is criminally vulgar\n", 
 	"How Soon Is Now");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nNow eighteen years hard labor sounds fair enough\n", 
+	"\nNow eighteen years hard labor sounds fair enough\n", 
 	"I Started Something I Couldn't Finish");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nUnruly girls,\nWho will not settle down,\nThey must be taken in hand\n", 
+	"\nUnruly girls,\nWho will not settle down,\nThey must be taken in hand\n", 
 	"Barbarism Begins at Home");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nShoplifters of the World,\nUnite and take over\n", 
+	"\nShoplifters of the World,\nUnite and take over\n", 
 	"Shoplifters of the World Unite");
 basicSmithSongs.addBasicCard(
-	"NAME THE SMITHS SONG:\nIf a double-decker bus crashes into us,\nTo die by your side is such a heavenly way to die\n", 
+	"\nIf a double-decker bus crashes into us,\nTo die by your side is such a heavenly way to die\n", 
 	"There Is a Light That Never Goes Out");
 
-var indexCount = 0;
+var basicIndexCount = 0;
 //pass wanted card set if more than one was created
 var askBasicFlashcards = function(cardSet) {
-	
-	if (indexCount < cardSet.length) {
+
+	if (basicIndexCount < cardSet.length) {
 		console.log("\n************NEW FLASHCARD*************");
 		inquirer.prompt([
 			{
 				name: "front",
-				message: basicSmithSongs.basicCardSet[indexCount].front	
+				message: "NAME THE SMITHS SONG:" + basicSmithSongs.basicCardSet[basicIndexCount].front	
 			}
 
 		]).then(function(answer) {
-			if (answer.front === basicSmithSongs.basicCardSet[indexCount].back) {
+			if (answer.front === basicSmithSongs.basicCardSet[basicIndexCount].back) {
 				console.log("Excellent! You're right! These are really hard flashcards!");
 
 			}
 			else {
-				console.log("Sorry, that's not right. The correct answer is: " + basicSmithSongs.basicCardSet[indexCount].back);
+				console.log("Sorry, that's not right. The correct answer is: " + basicSmithSongs.basicCardSet[basicIndexCount].back);
 			}
 
-			indexCount++;
+			basicIndexCount++;
 			askBasicFlashcards(cardSet);
 		});		
 		
-	}// end of while going through card set array
+	}// end of if going through card set array
 	else {
 		console.log("You're done!");
 	}	
 	
 }//end of askBasicFlashcards function
 
-askBasicFlashcards(basicSmithSongs.basicCardSet);
+//add cards to clozeSmithSongs 
+var clozeSmithSongs = CardSetCreator("cloze");
+
+clozeSmithSongs.addClozeCard(
+	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
+	"no");
+
+clozeSmithSongs.addClozeCard(
+	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
+	"say no");
+
+
+
+var clozeIndexCount = 0;
+//pass wanted card set if more than one was created
+var askClozeFlashcards = function(cardSet) {
+	
+	if (clozeIndexCount < cardSet.length) {
+		console.log("\n************NEW CLOZE FLASHCARD*************");
+		inquirer.prompt([
+			{
+			name: "partialText",
+			message: "FINISH THE LYRICS:" + clozeSmithSongs.clozeCardSet[clozeIndexCount].partialText	
+			}
+
+		]).then(function(answer) {
+			if (answer.partialText === clozeSmithSongs.clozeCardSet[clozeIndexCount].cloze) {
+				console.log("Excellent! You're right! These are really hard flashcards!");
+
+			}
+			else {
+				console.log("Sorry, that's not right. The correct answer is: " + clozeSmithSongs.clozeCardSet[clozeIndexCount].fullText);
+			}
+
+			clozeIndexCount++;
+			askClozeFlashcards(cardSet);
+		});		
+		
+	}// end of if going through card set array
+	else {
+		console.log("You're done!");
+	}	
+	
+}//end of askBasicFlashcards function
+
+
+inquirer.prompt([
+	{
+	name: "type",
+	message: "Which type of flashcard would you like?",
+	type: "list",
+	choices: ["basic", "cloze"]	
+	}
+]).then(function(flashcardType) {
+	if(flashcardType.type === "basic") {
+		askBasicFlashcards(basicSmithSongs.basicCardSet);
+	}
+	else {
+		askClozeFlashcards(clozeSmithSongs.clozeCardSet);
+	}
+});
 

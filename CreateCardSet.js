@@ -1,7 +1,8 @@
 
 var BasicFlashcard = require("./BasicCard.js");
+var ClozeFlashcard = require("./ClozeCard.js");
 
-//constructor for creating cards based on type
+//constructor for creating card sets based on type
 var CardSetCreator = function(type) {
 	//make scope-safe constructor
 	if (!(this instanceof CardSetCreator)) {
@@ -20,8 +21,12 @@ var CardSetCreator = function(type) {
 	} //end of if basic card
 
 	else { //only give choice of basic or cloze in terminal
-		// put code for creating cloze cards here	
+		this.clozeCardSet = [];
+		this.addClozeCard = function(text, cloze) {
+			//trying out scope-safe with no new keyword
+			this.clozeCardSet.push(ClozeFlashcard(text, cloze));
+		};	
 	} //end of else is a cloze card
-}
+}//end of CardSetCreator constructor
 
 module.exports = CardSetCreator;
