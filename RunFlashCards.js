@@ -2,34 +2,7 @@ var inquirer = require("inquirer");
 
 var CardSetCreator = require("./CreateCardSet.js");
 
-//add cards to basicSmithSongs 
-var basicSmithSongs = CardSetCreator("basic");
-
-basicSmithSongs.addBasicCard(
-	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
-	"Reel Around the Fountain");
-basicSmithSongs.addBasicCard(
-	"\nSweetness, sweetness, I was only joking\n", 
-	"Bigmouth Strikes Again");
-basicSmithSongs.addBasicCard(
-	"\nCall me morbid, call me pale,\nI spent six years on your trail\n", 
-	"Half a Person");
-basicSmithSongs.addBasicCard(
-	"\nI am the son and the heir,\nof a shyness that is criminally vulgar\n", 
-	"How Soon Is Now");
-basicSmithSongs.addBasicCard(
-	"\nNow eighteen years hard labor sounds fair enough\n", 
-	"I Started Something I Couldn't Finish");
-basicSmithSongs.addBasicCard(
-	"\nUnruly girls,\nWho will not settle down,\nThey must be taken in hand\n", 
-	"Barbarism Begins at Home");
-basicSmithSongs.addBasicCard(
-	"\nShoplifters of the World,\nUnite and take over\n", 
-	"Shoplifters of the World Unite");
-basicSmithSongs.addBasicCard(
-	"\nIf a double-decker bus crashes into us,\nTo die by your side is such a heavenly way to die\n", 
-	"There Is a Light That Never Goes Out");
-
+//create askBasicFlashcards function
 var basicIndexCount = 0;
 //pass wanted card set if more than one was created
 var askBasicFlashcards = function(cardSet) {
@@ -60,21 +33,9 @@ var askBasicFlashcards = function(cardSet) {
 		console.log("You're done!");
 	}	
 	
-}//end of askBasicFlashcards function
+};//end of askBasicFlashcards function
 
-//add cards to clozeSmithSongs 
-var clozeSmithSongs = CardSetCreator("cloze");
-
-clozeSmithSongs.addClozeCard(
-	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
-	"no");
-
-clozeSmithSongs.addClozeCard(
-	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
-	"say no");
-
-
-
+//create askClozeFlashcards function
 var clozeIndexCount = 0;
 //pass wanted card set if more than one was created
 var askClozeFlashcards = function(cardSet) {
@@ -105,9 +66,49 @@ var askClozeFlashcards = function(cardSet) {
 		console.log("You're done!");
 	}	
 	
-}//end of askBasicFlashcards function
+};//end of askClozeFlashcards function
+
+//----------------------------------------- create sets of cards by type -----------------------------------//
+//add cards to basicSmithSongs 
+var basicSmithSongs = CardSetCreator("basic");
+
+basicSmithSongs.addBasicCard(
+	"\nSweetness, sweetness, I was only joking\n", 
+	"Bigmouth Strikes Again");
+basicSmithSongs.addBasicCard(
+	"\nCall me morbid, call me pale,\nI spent six years on your trail\n", 
+	"Half a Person");
+basicSmithSongs.addBasicCard(
+	"\nI am the son and the heir,\nof a shyness that is criminally vulgar\n", 
+	"How Soon Is Now");
+basicSmithSongs.addBasicCard(
+	"\nNow eighteen years hard labor sounds fair enough\n", 
+	"I Started Something I Couldn't Finish");
+basicSmithSongs.addBasicCard(
+	"\nUnruly girls,\nWho will not settle down,\nThey must be taken in hand\n", 
+	"Barbarism Begins at Home");
 
 
+//add cards to clozeSmithSongs 
+var clozeSmithSongs = CardSetCreator("cloze");
+
+clozeSmithSongs.addClozeCard(
+	"\nFifteen minutes with you,\nWell I wouldn't say no\n", 
+	"say no");
+clozeSmithSongs.addClozeCard(
+	"\nIf a double-decker bus crashes into us,\nTo die by your side is such a heavenly way to die\n", 
+	"such a heavenly way to die");
+clozeSmithSongs.addClozeCard(
+	"\nShoplifters of the World,\nUnite and take over\n", 
+	"and take over");
+clozeSmithSongs.addClozeCard(
+	"\nThere's too much caffeine in your bloodstream,\nAnd a lack of real spice in your life\n", 
+	"of real spice in your life");
+clozeSmithSongs.addClozeCard(
+	"\nHow can someone so young,\nSing words so sad?\n", 
+	"words so sad");
+
+//--------------------- ask user for type of flashcard and run function needed ----------------------------//
 inquirer.prompt([
 	{
 	name: "type",
