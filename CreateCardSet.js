@@ -1,10 +1,11 @@
+
 var BasicFlashcard = require("./BasicCard.js");
 
 //constructor for creating cards based on type
-var CardCreator = function(type) {
+var CardSetCreator = function(type) {
 	//make scope-safe constructor
-	if (!(this instanceof CardCreator)) {
-		return new CardCreator(type);
+	if (!(this instanceof CardSetCreator)) {
+		return new CardSetCreator(type);
 	}
 	//add this method to prototype? not sure how with if statement
 	//add function to prototype and then call here - but then both cards have access to unneeded functions
@@ -23,4 +24,4 @@ var CardCreator = function(type) {
 	} //end of else is a cloze card
 }
 
-module.exports = CardCreator;
+module.exports = CardSetCreator;

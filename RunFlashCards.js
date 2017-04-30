@@ -1,8 +1,8 @@
 var inquirer = require("inquirer");
 
-var CardCreator = require("./CreateFlashcards.js");
+var CardSetCreator = require("./CreateCardSet.js");
 
-var basicSmithSongs = CardCreator("basic");
+var basicSmithSongs = CardSetCreator("basic");
 
 //add cards to basicSmithSongs 
 basicSmithSongs.addBasicCard(
