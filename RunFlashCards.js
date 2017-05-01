@@ -68,16 +68,7 @@ var askClozeFlashcards = function(cardSet) {
 	}		
 };//end of askClozeFlashcards function
 
-//----------------------------------------- create sets of cards  -----------------------------------//
-
-
-
-
-
-
-
-
-//--------------------- ask user for type of flashcard, topic and run function needed ----------------------------//
+//--------------------- ask user for type of flashcard, topic the create card sets and run function needed ----------------------------//
 inquirer.prompt([
 	{
 	name: "topic",
