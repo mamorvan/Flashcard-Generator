@@ -13,7 +13,7 @@ var CardSetCreator = function(type) {
 	//add function to prototype and then call here - but then both cards have access to unneeded functions
 	//recommended by Ryo - make a stand-alone function and reference that - 
 	//don't add methods on prototype that can be accessed by objects that don't need them- room for error
-	//not working but keep trying to figure out
+	//tried both ways but both cause bugs - keep trying to figure out
 	if (type === "basic") {		
 		this.addBasicCard = function(front, back) {
 			//trying out scope-safe with no new keyword

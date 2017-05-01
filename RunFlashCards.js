@@ -3,6 +3,7 @@ var inquirer = require("inquirer");
 var CardSetCreator = require("./CreateCardSet.js");
 
 //create askBasicFlashcards function
+
 var basicIndexCount = 0;
 //pass wanted card set if more than one was created
 var askBasicFlashcards = function(cardSet) {
@@ -12,7 +13,7 @@ var askBasicFlashcards = function(cardSet) {
 		inquirer.prompt([
 			{
 				name: "front",
-				message: "NAME THE SMITHS SONG:" + cardSet[basicIndexCount].front	
+				message: "NAME THE SONG:" + cardSet[basicIndexCount].front	
 			}
 
 		]).then(function(answer) {
@@ -64,8 +65,7 @@ var askClozeFlashcards = function(cardSet) {
 	}// end of if going through card set array
 	else {
 		console.log("You're done!");
-	}	
-	
+	}		
 };//end of askClozeFlashcards function
 
 //----------------------------------------- create sets of cards  -----------------------------------//
@@ -144,6 +144,7 @@ clozeLeonardCohen.addClozeCard(
 clozeLeonardCohen.addClozeCard(
 	"\nDance me through the curtains that our kisses have outworn,\nRaise a tent of shelter now, though everything is torn\nDance me to the end of love\n", 
 	"the end of love");
+
 //--------------------- ask user for type of flashcard, topic and run function needed ----------------------------//
 inquirer.prompt([
 	{
