@@ -10,10 +10,10 @@ var BasicFlashcard = function(front, back) {
 //add printFront method to prototype
 BasicFlashcard.prototype.printFront = function() {
 	console.log(this.front);
-}
+};
 //add printBack method to prototype
 BasicFlashcard.prototype.printBack = function() {
 	console.log(this.back);
-}
+};
 
 module.exports = BasicFlashcard;

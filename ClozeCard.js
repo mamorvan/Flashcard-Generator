@@ -5,7 +5,9 @@ var ClozeFlashcard = function(text, cloze) {
 	}
 	this.fullText = text;
 	this.cloze = cloze;
-	this.partialText = text.replace(cloze, ". . . ");
+	//if cloze appears more than once in full text, replace all instances - try with Everybody Knows lyrics
+	var clozeAll = new RegExp(cloze, "g");
+	this.partialText = text.replace(clozeAll, ". . . ");
 }
 
 //add printPartialText method to prototype to print question to user
